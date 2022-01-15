@@ -1,0 +1,44 @@
+:root {
+    --c-main: #351c75;
+    --c-secondary: #e69138;
+    --c-dark: #333;
+    --c-background: #fce5cd;
+    --c-background-dark: #f7d7b5;}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+}
+
+.intro {
+    height: calc(100vh - 50px);
+    background-color:var(--c-background) ;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    /*kendi içinde otomatik olarak grid oluşturuyor*/
+    grid-template-columns: [intro-left] 1fr [intro-sidebar] 250px;
+    /*sidebar alanını 250px yaptı, gri kalan left kısmını intro left kapladı ve footer kısmı olduğu gibi kaldı*/
+    grid-template-areas: 'intro-left intro-sidebar',
+                        'intro-footer intro-sidebar';
+    /*iki satırlı ve iki sutünlu bir grid sistemi olmuş oldu ve grid sistemşnde ilkinde left sağda side bar ikinci satırın ilk satırında footer ve diğer tarfta ise sidebar devam edecek şekilde ayarlamış oldum.*/
+
+}
+.intro .intro-left{
+    align-self: center ;/* kendi içinde dikey olarak ortalar*/
+    justify-self: center;/*kendi içinde yatay olarak ortalar*/
+    text-align:center;/*yazıları ortalar*/
+
+}
+.intro .intro-sidebar{
+background: var(--c-background-dark);
+}
+.intro .intro-footer{
+    background:var(--c-main);
+}
