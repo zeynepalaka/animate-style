@@ -3,7 +3,8 @@
     --c-secondary: #e69138;
     --c-dark: #333;
     --c-background: #fce5cd;
-    --c-background-dark: #f7d7b5;}
+    --c-background-dark: #f7d7b5;
+}
 
 * {
     margin: 0;
@@ -17,28 +18,85 @@
 
 }
 
+h1 {
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    color: var(--c-main);
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--c-secondary);
+}
+
 .intro {
     height: calc(100vh - 50px);
-    background-color:var(--c-background) ;
+    background-color: var(--c-background);
     display: grid;
     grid-template-rows: 1fr auto;
     /*kendi içinde otomatik olarak grid oluşturuyor*/
-    grid-template-columns: [intro-left] 1fr [intro-sidebar] 250px;
+    grid-template-columns: [intro-left] 1fr [intro-sidebar] 230px;
     /*sidebar alanını 250px yaptı, gri kalan left kısmını intro left kapladı ve footer kısmı olduğu gibi kaldı*/
-    grid-template-areas: 'intro-left intro-sidebar',
-                        'intro-footer intro-sidebar';
+    grid-template-areas: 'intro-left intro-sidebar'
+        'intro-footer intro-sidebar';
     /*iki satırlı ve iki sutünlu bir grid sistemi olmuş oldu ve grid sistemşnde ilkinde left sağda side bar ikinci satırın ilk satırında footer ve diğer tarfta ise sidebar devam edecek şekilde ayarlamış oldum.*/
 
 }
-.intro .intro-left{
-    align-self: center ;/* kendi içinde dikey olarak ortalar*/
-    justify-self: center;/*kendi içinde yatay olarak ortalar*/
-    text-align:center;/*yazıları ortalar*/
+
+.intro .intro-left {
+    grid-area: intro-left;
+    /*yukarıda grid sisteminde nasıl kullandıysak sınıflarına isimlerini o şekilde veriyoruz.*/
+    align-self: center;
+    /* kendi içinde dikey olarak ortalar*/
+    justify-self: center;
+    /*kendi içinde yatay olarak ortalar*/
+    text-align: center;
+    /*yazıları ortalar*/
 
 }
-.intro .intro-sidebar{
-background: var(--c-background-dark);
+
+.intro .intro-left h1 {
+    padding-bottom: 10px;
 }
-.intro .intro-footer{
-    background:var(--c-main);
+
+.intro .intro-sidebar {
+    grid-area: intro-sidebar;
+    background: var(--c-background-dark);
+    padding: 25px;
+    overflow: auto;
+}
+
+.intro .intro-sidebar h3 {
+    font-size: 1rem;
+    color: var(--c-dark);
+    margin-bottom: 10px;
+}
+.intro .intro-sidebar section{
+    margin-bottom: 20px;
+}
+
+.intro .intro-sidebar  ul li a {
+    font-size: 1rem;
+    color: var(--c-dark);
+    letter-spacing: .8px;
+    line-height: 1.5;
+    padding: 10px 0 ;
+    font-weight: 500;
+}
+
+.intro .intro-footer {
+    grid-area: intro-footer;
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 13px;
+    letter-spacing: .5px;
+    color: #333;
+}
+
+.intro .intro-footer a {
+    text-decoration: underline;
+    /*altı çizili olmasını istersek bu şekilde yazıyoruz*/
+    color: var(--c-main);
 }
